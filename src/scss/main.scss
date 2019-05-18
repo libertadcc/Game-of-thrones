@@ -1,0 +1,48 @@
+body{
+  margin:0;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: gray;
+  font-family: 'MedievalSharp', cursive;
+}
+.page{
+  text-align: center;
+  padding: 10px;
+}
+.title{
+  font-size: 60px;
+  text-transform: uppercase;
+}
+.pannel {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pannel{
+  display:  flex;
+  flex-direction: column;
+  @media all and(min-width: 768px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 15px;
+  }
+  @media  all and(min-width: 1024px){
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 15px;
+  }
+}
+.house__title{
+  font-size: 24px;
+}
+.house__img{
+  max-width: 150px;
+}
+.house__from{
+  font-size: 20px;
+}
+.house__coat{
+  font-size: 18px;
+}

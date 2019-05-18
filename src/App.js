@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
+import './scss/main.scss';
+import Houses from './Components/Houses';
+
 const houses = [
   {
       "url": "https://www.anapioficeandfire.com/api/houses/1",
       "name": "House Algood",
       "region": "The Westerlands",
       "coatOfArms": "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)",
+      "shield": "https://awoiaf.westeros.org/images/thumb/b/b3/House_Algood.svg/1200px-House_Algood.svg.png",
       "words": "",
       "id" : "1",
       "titles": [
@@ -31,6 +34,7 @@ const houses = [
       "name": "House Allyrion of Godsgrace",
       "region": "Dorne",
       "coatOfArms": "Gyronny Gules and Sable, a hand couped Or",
+      "shield": "https://awoiaf.westeros.org/images/thumb/a/a6/House_Allyrion.svg/1200px-House_Allyrion.svg.png",
       "words": "No Foe May Pass",
       "id" : "2",
       "titles": [
@@ -63,6 +67,7 @@ const houses = [
       "coatOfArms": "",
       "words": "",
       "id" : "3",
+      "shield": "https://vignette.wikia.nocookie.net/gameofthrones/images/2/2f/House-Umber-Main-Shield.PNG/revision/latest?cb=20161231125826",
       "titles": [
           ""
       ],
@@ -87,6 +92,7 @@ const houses = [
       "region": "The Reach",
       "coatOfArms": "Or, semy of ants gules",
       "words": "Never Resting",
+      "shield": "https://awoiaf.westeros.org/images/thumb/6/69/House_Ambrose.svg/1200px-House_Ambrose.svg.png",
       "id" : "4",
       "titles": [
           ""
@@ -116,6 +122,7 @@ const houses = [
       "url": "https://www.anapioficeandfire.com/api/houses/5",
       "name": "House Appleton of Appleton",
       "region": "The Reach",
+      "shield": "https://awoiaf.westeros.org/images/thumb/9/95/House_Appleton.svg/545px-House_Appleton.svg.png",
       "coatOfArms": "Or, an apple tree eradicated proper fructed gules, quartered with argent, a gatehouse cendrée",
       "words": "",
       "id" : "5",
@@ -143,6 +150,7 @@ const houses = [
       "region": "The Vale",
       "coatOfArms": "",
       "words": "",
+      "shield": "https://awoiaf.westeros.org/images/thumb/b/b4/House_Arryn.svg/1200px-House_Arryn.svg.png",
       "id" : "6",
       "titles": [
           ""
@@ -168,6 +176,7 @@ const houses = [
       "region": "The Vale",
       "coatOfArms": "A sky-blue falcon soaring against a white moon, on a sky-blue field(Bleu celeste, upon a plate a falcon volant of the field)",
       "words": "As High as Honor",
+      "shield": "https://vignette.wikia.nocookie.net/gameofthrones/images/1/15/House-Arryn-Main-Shield.PNG/revision/latest?cb=20170101094153",
       "id" : "7",
       "titles": [
           "King of Mountain and Vale (formerly)",
@@ -224,6 +233,7 @@ const houses = [
       "region": "The Reach",
       "coatOfArms": "Tenny, a sun in splendour beneath a chevron inverted argent",
       "words": "Our Sun Shines Bright",
+      "shield": "https://vignette.wikia.nocookie.net/gameofthrones/images/6/62/House-Ashford-Shield.PNG/revision/latest?cb=20170519012643",
       "id" : "8",
       "titles": [
           "Lord of Ashford"
@@ -254,6 +264,7 @@ const houses = [
       "region": "The North",
       "coatOfArms": "",
       "words": "",
+      "shield": "https://vignette.wikia.nocookie.net/ttgot-s2-au/images/b/be/Ashwood.png/revision/latest?cb=20161213021139",
       "id" : "9",
       "titles": [
           ""
@@ -279,6 +290,7 @@ const houses = [
       "region": "The Riverlands",
       "coatOfArms": "A field of silver mockingbirds, on a green field(Vert, semé of mockingbirds argent)",
       "words": "",
+      "shield": "https://awoiaf.westeros.org/images/thumb/2/2a/House_Baelish_%28Harrenhal%29.svg/1200px-House_Baelish_%28Harrenhal%29.svg.png",
       "id" : "10",
       "titles": [
           "Lord Paramount of the Trident",
@@ -310,22 +322,18 @@ const houses = [
 class App extends React.Component{
   render(){
     return(
-      <div className="App">
-        <h1>Casas de Juego de </h1>
-        <ul>
-          {houses
-          .map(item =>{
-            return(
-              <li key={item.id}>
-                <div>
-                  <h2>{item.name}</h2>
-                  <img src={`https://placehold.it/200x200/?text=${item.name}`} alt={`Imagen de la casa ${item.name}`} />
-                  <h3>From: {item.region}</h3>
-                </div>
-              </li>
-            );
-          })
-          }
+      <div className="page">
+        <h1 className="title">Houses of Game of Thrones</h1>
+        <ul className="pannel">
+          {houses.map(item =>{
+          return(
+          <li className="houses" key={item.id}>
+            <Houses 
+            item={item}
+            />
+          </li>
+          )}
+          )}
         </ul>
       </div>
     );
